@@ -1,2 +1,2 @@
 # linux
-# 配置
+# myconfig
