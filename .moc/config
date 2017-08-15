@@ -1,0 +1,12 @@
+Repeat = no
+Shuffle = no
+AutoNext = no
+ReadTags = yes
+MusicDir = /home/z/Music
+StartInMusicDir = yes
+Sort = FileName
+SoundDriver = ALSA
+XTerms = xterm-256color
+Theme = moc
+MOCDir = ~/.moc
+UseRCC = no
