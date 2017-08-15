@@ -1,0 +1,38 @@
+xterm*termName: xterm-256color
+xterm*locale: true
+xterm*utf8: true
+xterm*utf8Title: true
+xterm*fontMenu*fontdefault*Label: Default
+xterm*faceName: Monospace
+xterm*faceNameDoublesize: WenQuanYi Micro Hei
+xterm*faceSize: 11
+xterm*background: #222222
+xterm*foreground: #DEDEDE
+xterm*cursorColor: #FF7500
+xterm*color0: #111111
+xterm*color1: #FF3333
+xterm*color2: #75DE75
+xterm*color3: #FFFF75
+xterm*color4: #7599DE
+xterm*color5: #C7C7EA
+xterm*color6: #75DEDE
+xterm*color7: #EAFFEA
+xterm*color8: #111111
+xterm*color9: #FF3333
+xterm*color10: #75DE75
+xterm*color11: #FFFF75
+xterm*color12: #7599DE
+xterm*color13: #C7C7EA
+xterm*color14: #75DEDE
+xterm*color15: #EAFFEA
+xterm*cursorBlink: true
+xterm*borderWidth: 0
+xterm*eightBitInput: false
+xterm*altSendsEscape: true
+xterm*inputMethod: ibus
+xterm*SaveLines: 999
+xterm*VT100*Translations: #override \
+        Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
+        Ctrl <KeyPress> V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
+        <BtnUp> : select-end(CLIPBOARD, CUT_BUFFER1) \n\
+        <BtnUp> : select-end(PRIMARY, CUT_BUFFER0) \n
