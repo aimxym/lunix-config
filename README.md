@@ -1,2 +1,2 @@
-# linux
-### myconfig
+# Linux
+### myConfig
