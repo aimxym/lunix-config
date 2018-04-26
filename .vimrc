@@ -9,7 +9,7 @@ set bufhidden=hide
 set history=999
 set laststatus=2
 set statusline=[%F]%r%w%m%=[%l,%c][%p%%]\ \%y[%{&fileencoding}][%{&ff}]
-set cmdheight=2
+set cmdheight=3
 set wildmenu
 set number
 set wrap
