@@ -38,6 +38,8 @@ set viminfo+=!
 set autoread
 set confirm
 set mouse=a
+" set guifont=courier_new\ h14
+set guifont=courier_new:h10
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
@@ -56,8 +58,9 @@ nnoremap bp :bp<CR>
 " Vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+call vundle#begin('$VIM/vimfiles/bundle/')
 Bundle 'gmarik/Vundle.vim'
 """""""""""""""""""""""""""""""""
 Bundle 'mileszs/ack.vim'
@@ -86,8 +89,17 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sheerun/vim-polyglot'
 """""""""""""""""""""""""""""""""
 call vundle#end()
-filetype plugin indent on
+" filetype plugin indent on
+filetype on
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+" :BundleList -列举出列表中(.vimrc中)配置的所有插件
+" :BundleInstall -安装列表中全部插件
+" :BundleInstall! -更新列表中全部插件
+" :BundleSearch foo -查找foo插件
+" :BundleSearch! foo -刷新foo插件缓存
+" :BundleClean -清除列表中没有的插件
+" :BundleClean! -清除列表中没有的插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " calendar
 nnoremap cl :Calendar -view=clock<CR>
@@ -254,7 +266,7 @@ func SetTitle()
     if &filetype == 'sh'
         call setline(1, "#################################")
         call append(line("."), "# FileName: ".expand("%"))
-        call append(line(".")+1, "# Author: gmail@aimxym")
+        call append(line(".")+1, "# Author: aimxym@gmail")
         call append(line(".")+2, "# Version: ".strftime("%m-%d-%Y"))
         call append(line(".")+3, "#################################")
         call append(line(".")+4, "#!/bin/bash")
@@ -262,14 +274,14 @@ func SetTitle()
     elseif &filetype == 'python'
         call append(line("."), "# -*- coding:utf-8 -*-")
         call append(line(".")+1, "# FileName: ".expand("%"))
-        call append(line(".")+2, "# Author: gmail@aimxym")
+        call append(line(".")+2, "# Author: aimxym@gmail")
         call append(line(".")+3, "# Version: ".strftime("%m-%d-%Y"))
         call append(line(".")+4, "# Description: ")
         call append(line(".")+5, "")
     else
         call setline(1, "/*********************************")
         call append(line("."), " > FileName: ".expand("%"))
-        call append(line(".")+1, " > Author: gmail@aimxym")
+        call append(line(".")+1, " > Author: aimxym@gmail")
         call append(line(".")+2, " > Version: ".strftime("%m-%d-%Y"))
         call append(line(".")+3, " *********************************/")
         call append(line(".")+4, "")
