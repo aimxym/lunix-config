@@ -8,20 +8,17 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 -- }}}
-
 -- {{{ Error handling
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
     title = "Oops, there were errors during startup!",
     text = awesome.startup_errors })
 end
-
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
         if in_error then return end
         in_error = true
-
         naughty.notify({ preset = naughty.config.presets.critical,
         title = "Oops, an error happened!",
         text = err })
@@ -29,7 +26,6 @@ do
     end)
 end
 -- }}}
-
 -- {{{ Autostart applications
 function run_once(cmd)
     findme = cmd
@@ -39,10 +35,8 @@ function run_once(cmd)
     end
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
-
 run_once("xterm")
 -- }}}
-
 -- {{{ Variable definitions
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme.lua")
 terminal = "xterm"
@@ -50,7 +44,6 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 altkey = "Mod1"
-
 local layouts =
 {
     awful.layout.suit.floating,
@@ -67,7 +60,6 @@ local layouts =
     awful.layout.suit.magnifier
 }
 -- }}}
-
 -- {{{ Wallpaper
 if beautiful.wallpaper then
     for s = 1, screen.count() do
@@ -75,14 +67,12 @@ if beautiful.wallpaper then
     end
 end
 -- }}}
-
 -- {{{ Tags
 tags = {}
 for s = 1, screen.count() do
     tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
-
 -- {{{ Menu
 Network = {
     { "Avahi SSH Server Browser", "bssh" },
@@ -137,10 +127,8 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = myma
 menubar.utils.terminal = terminal
 app_folders = { "/usr/share/applications/", "~/.local/share/applications/" }
 -- }}}
-
 -- {{{ Wibox
 mytextclock = awful.widget.textclock(" %A %d %B" .. ", " .. "%H:%M ")
-
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -185,7 +173,6 @@ awful.button({ }, 5, function ()
     awful.client.focus.byidx(-1)
     if client.focus then client.focus:raise() end
 end))
-
 for s = 1, screen.count() do
     mypromptbox[s] = awful.widget.prompt()
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -196,28 +183,22 @@ for s = 1, screen.count() do
     awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
-
     mywibox[s] = awful.wibox({ position = "top", screen = s, border_width = 0, height = 22 })
-
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
     left_layout:add(mylauncher)
     left_layout:add(mypromptbox[s])
-
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
-
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-
     mywibox[s]:set_widget(layout)
 end
 -- }}}
-
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
 awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -225,7 +206,6 @@ awful.button({ }, 4, awful.tag.viewnext),
 awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
-
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
 awful.key({ modkey, "Control" }, "w",
@@ -310,7 +290,6 @@ function ()
 end),
 awful.key({ modkey }, "p", function() menubar.show() end)
 )
-
 clientkeys = awful.util.table.join(
 awful.key({ modkey }, "f", function (c) c.fullscreen = not c.fullscreen end),
 awful.key({ modkey, "Shift" }, "c", function (c) c:kill() end),
@@ -328,7 +307,6 @@ function (c)
     c.maximized_vertical = not c.maximized_vertical
 end)
 )
-
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
     awful.key({ modkey }, "#" .. i + 9,
@@ -366,15 +344,12 @@ for i = 1, 9 do
         end
     end))
 end
-
 clientbuttons = awful.util.table.join(
 awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
 awful.button({ modkey }, 1, awful.mouse.client.move),
 awful.button({ modkey }, 3, awful.mouse.client.resize))
-
 root.keys(globalkeys)
 -- }}}
-
 -- {{{ Rules
 awful.rules.rules = {
     { rule = { },
@@ -395,7 +370,6 @@ awful.rules.rules = {
     properties = { opacity = 0.9 } },
 }
 -- }}}
-
 -- {{{ Signals
 client.connect_signal("manage", function (c, startup)
     c:connect_signal("mouse::enter", function(c)
@@ -404,14 +378,12 @@ client.connect_signal("manage", function (c, startup)
             client.focus = c
         end
     end)
-
     if not startup then
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
             awful.placement.no_offscreen(c)
         end
     end
-
     local titlebars_enabled = false
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
         local buttons = awful.util.table.join(
@@ -426,33 +398,27 @@ client.connect_signal("manage", function (c, startup)
             awful.mouse.client.resize(c)
         end)
         )
-
         local left_layout = wibox.layout.fixed.horizontal()
         left_layout:add(awful.titlebar.widget.iconwidget(c))
         left_layout:buttons(buttons)
-
         local right_layout = wibox.layout.fixed.horizontal()
         right_layout:add(awful.titlebar.widget.floatingbutton(c))
         right_layout:add(awful.titlebar.widget.maximizedbutton(c))
         right_layout:add(awful.titlebar.widget.stickybutton(c))
         right_layout:add(awful.titlebar.widget.ontopbutton(c))
         right_layout:add(awful.titlebar.widget.closebutton(c))
-
         local middle_layout = wibox.layout.flex.horizontal()
         local title = awful.titlebar.widget.titlewidget(c)
         title:set_align("center")
         middle_layout:add(title)
         middle_layout:buttons(buttons)
-
         local layout = wibox.layout.align.horizontal()
         layout:set_left(left_layout)
         layout:set_right(right_layout)
         layout:set_middle(middle_layout)
-
         awful.titlebar(c):set_widget(layout)
     end
 end)
-
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
