@@ -38,8 +38,6 @@ set viminfo+=!
 set autoread
 set confirm
 set mouse=a
-" set guifont=courier_new\ h14
-set guifont=courier_new:h10
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
@@ -58,9 +56,10 @@ nnoremap bp :bp<CR>
 " Vundle
 set nocompatible
 filetype off
-" set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-call vundle#begin('$VIM/vimfiles/bundle/')
+" set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+" call vundle#begin('$VIM/vimfiles/bundle/')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Bundle 'gmarik/Vundle.vim'
 """""""""""""""""""""""""""""""""
 Bundle 'mileszs/ack.vim'
@@ -89,8 +88,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sheerun/vim-polyglot'
 """""""""""""""""""""""""""""""""
 call vundle#end()
-" filetype plugin indent on
 filetype on
+" filetype plugin indent on
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 " :BundleList -列举出列表中(.vimrc中)配置的所有插件
@@ -118,10 +117,10 @@ let ctrlp_cmd = 'CtrlP'
 let ctrlp_match_window = 'top,order:btt,min:1,max:7,results:22'
 let ctrlp_max_files = 0
 let ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll|pyc|zip|tar|tar.gz|lib|out|png|img|bak|db|o)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
+    \ 'dir': '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|pyc|zip|tar|tar.gz|lib|out|png|img|bak|db|o)$',
+    \ 'link': 'some_bad_symbolic_links',
+\ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp-funky
 nnoremap <leader>k :CtrlPFunky<CR>
@@ -232,32 +231,32 @@ let ycm_cache_omnifunc = 0
 nnoremap cr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
-    if &filetype == 'c'
-        exec "!gcc % -o %<"
-        exec "! ./%<"
-    elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "! ./%<"
-    elseif &filetype == 'java'
-        exec "!javac %"
-        exec "!java %<"
-    elseif &filetype == 'python'
-        exec "!python %"
-    elseif &filetype == 'sh'
-        :!./%
-    endif
-endfunc
+        if &filetype == 'c'
+            exec "!gcc % -o %<"
+            exec "! ./%<"
+        elseif &filetype == 'cpp'
+            exec "!g++ % -o %<"
+            exec "! ./%<"
+        elseif &filetype == 'java'
+            exec "!javac %"
+            exec "!java %<"
+        elseif &filetype == 'python'
+            exec "!python %"
+        elseif &filetype == 'sh'
+            :!./%
+        endif
+    endfunc
 nnoremap cd :call Rungdb()<CR>
 func! Rungdb()
     exec "w"
-    if &filetype == 'c'
-        exec "!gcc % -g -o %<"
-        exec "!gdb ./%<"
-    elseif &filetype == 'cpp'
-        exec "!g++ % -g -o %<"
-        exec "!gdb ./%<"
-    endif
-endfunc
+        if &filetype == 'c'
+            exec "!gcc % -g -o %<"
+            exec "!gdb ./%<"
+        elseif &filetype == 'cpp'
+            exec "!g++ % -g -o %<"
+            exec "!gdb ./%<"
+        endif
+    endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " title
@@ -305,5 +304,5 @@ autocmd BufNewFile * normal G
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shortmess=atI
 colorscheme Dark
-" set fileformat=mac,unix,dos
+" set fileformat=unix,dos,mac
 " :%s/^M//g
