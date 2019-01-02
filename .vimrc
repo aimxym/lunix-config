@@ -7,7 +7,7 @@ set nobackup
 set noswapfile
 set bufhidden=hide
 set history=999
-set laststatus=3
+set laststatus=2
 set statusline=[%F]%r%w%m%=[%l,%c][%p%%]\ \%y[%{&fileencoding}][%{&ff}]
 set cmdheight=3
 set wildmenu
@@ -38,6 +38,8 @@ set viminfo+=!
 set autoread
 set confirm
 set mouse=a
+set guifont=courier_new:h10
+" set guifont=courier_new\ h14
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
