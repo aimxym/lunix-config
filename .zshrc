@@ -7,6 +7,5 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/o
 source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 export PATH=/bin:/usr/bin:/usr/local/bin:"{PATH}"
-source ~/.bash_profile
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
