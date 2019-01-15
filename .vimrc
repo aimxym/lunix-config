@@ -37,9 +37,8 @@ set foldclose=all
 set viminfo+=!
 set autoread
 set confirm
-set mouse=a
-set guifont=courier_new:h10
-" set guifont=courier_new\ h14
+" set guifont=courier_new:h10
+" set mouse=a
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
