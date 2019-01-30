@@ -8,7 +8,7 @@ set noswapfile
 set bufhidden=hide
 set history=999
 set laststatus=2
-set statusline=[%F]%r%w%m%=[%l,%c][%p%%]\ \%y[%{&fileencoding}][%{&ff}]
+set statusline=%m%F%=[ASCII=\%03.3b][HEX=\%02.2B][%l,%c][%p%\%][%L\L]%r%w%y[%{&fileencoding}][%{&ff}]
 set cmdheight=3
 set wildmenu
 set number
