@@ -12,8 +12,8 @@ set statusline=%m%F%=[ASCII=\%03.3b][HEX=\%02.2B][%l,%c][%p%\%][%L\L]%r%w%y[%{&f
 set cmdheight=3
 set wildmenu
 set number
-" set wrap
-" set showbreak=~>
+set nowrap
+set showbreak=~>
 set iskeyword+=_,$,@,%,#,-
 set formatoptions=tcrqn
 set autoindent
