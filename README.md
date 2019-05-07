@@ -1,1 +1,1 @@
-# config
+# unix-config
