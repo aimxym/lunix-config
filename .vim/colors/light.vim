@@ -3,7 +3,7 @@ highlight clear
 if exists("syntax_on")
 	syntax reset
 endif
-let colors_name = "Light"
+let colors_name = "light"
 hi SpecialKey ctermfg=250
 hi NonText ctermfg=250
 hi Directory ctermfg=17
