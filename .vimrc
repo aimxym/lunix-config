@@ -303,6 +303,6 @@ autocmd BufNewFile * normal G
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shortmess=atI
-colorscheme Dark
+colorscheme dark
 " set fileformat=unix,dos,mac
 " :%s/^M//g
