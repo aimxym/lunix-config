@@ -3,7 +3,7 @@ highlight clear
 if exists("syntax_on")
 	syntax reset
 endif
-let colors_name = "Dark"
+let colors_name = "dark"
 au InsertLeave * hi StatusLine ctermfg=235 ctermbg=1 guifg=#222222 guibg=#c72200
 au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2 guifg=#222222 guibg=#75de75
 hi SpecialKey ctermfg=208 guifg=#ef7500
