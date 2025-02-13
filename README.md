@@ -1,1 +1,1 @@
-# lunix_config
+# lunix-config
